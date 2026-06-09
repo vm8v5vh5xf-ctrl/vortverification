@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VORT Tracker Verification</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+
+    <img src="logo.png" alt="VORT Logo" class="logo">
+
+    <h1>VORT TRACKER VERIFICATION</h1>
+
+    <div class="progress-container">
+        <div class="progress-bar" id="progressBar"></div>
+    </div>
+
+    <p id="status">PROCESSING 0%</p>
+
+</div>
+
+<script>
+let progress = 0;
+
+const bar = document.getElementById("progressBar");
+const status = document.getElementById("status");
+
+const interval = setInterval(() => {
+    progress += 10;
+
+    bar.style.width = progress + "%";
+    status.textContent = "PROCESSING " + progress + "%";
+
+    if(progress >= 100){
+        clearInterval(interval);
+        status.innerHTML = "<h2>✅ You've been verified</h2>";
+    }
+}, 500);
+</script>
+
+</body>
+</html>
